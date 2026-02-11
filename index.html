@@ -1,58 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>En Jeyasri ❤️</title>
+<title> Laddu Jeyasri ❤️</title>
 <style>
 body{
 margin:0;
-padding:0;
-text-align:center;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 font-family:'Segoe UI',sans-serif;
-background:linear-gradient(to right,#ff758c,#ff7eb3);
-color:white;
 }
 
-h1{margin-top:50px;}
-
-img{
-width:280px;
-height:350px;
-object-fit:cover;
+.card{
+background:white;
+padding:40px;
 border-radius:20px;
-box-shadow:0 0 20px rgba(0,0,0,0.4);
-margin-top:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+width:320px;
+position:relative;
+}
+
+h2{
+color:#ff4d6d;
 }
 
 button{
-padding:12px 25px;
-margin:20px;
-font-size:18px;
+padding:10px 20px;
+margin:10px;
 border:none;
-border-radius:25px;
-background-color:#ff1744;
-color:white;
+border-radius:20px;
+font-size:16px;
 cursor:pointer;
+}
+
+#yesBtn{
+background:#ff4d6d;
+color:white;
+}
+
+#noBtn{
+background:#ff8fa3;
+color:white;
+position:absolute;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Jeyasri ❤️</h1>
-<h2>En Vazhkaiyin Kadhal Nee 💕</h2>
+<div class="card">
+<h2>Jeyasri ❤️</h2>
+<p>Will you be my forever Valentine? 💕</p>
 
-<img src="photo1.jpg">
+<button id="yesBtn" onclick="yesClick()">Yes 💖</button>
+<button id="noBtn" onmouseover="moveButton()">No 😜</button>
 
-<p>
-Nee dhan en santhosham 💖<br>
-Naan unai endrum kadhalippen 💍❤️
+<p style="font-size:12px;color:gray;">
+Don't waste your time clicking No 😌
 </p>
+</div>
 
-<audio autoplay loop>
-<source src="song.mp3" type="audio/mp3">
-</audio>
+<script>
 
-<button onclick="alert('I Love You Jeyasri ❤️')">Forever Yours 💖</button>
+function yesClick(){
+document.body.innerHTML = `
+<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:linear-gradient(135deg,#ff758c,#ff7eb3);color:white;text-align:center;font-family:'Segoe UI';flex-direction:column;">
+<h1>Yaaahhh! ❤️</h1>
+<h2>I Love You Jeyasri 💍</h2>
+<p>You are my forever and always 💖</p>
+</div>
+`;
+}
+
+function moveButton(){
+let button=document.getElementById("noBtn");
+let x=Math.random()*200;
+let y=Math.random()*150;
+button.style.left=x+"px";
+button.style.top=y+"px";
+}
+
+</script>
 
 </body>
 </html>
