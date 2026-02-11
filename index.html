@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Laddu Jeyasri ❤️</title>
+<meta charset="UTF-8">
+<title>For My Jeyasri ❤️</title>
+
 <style>
 body{
 margin:0;
@@ -11,6 +13,7 @@ justify-content:center;
 align-items:center;
 background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 font-family:'Segoe UI',sans-serif;
+overflow:hidden;
 }
 
 .card{
@@ -34,10 +37,11 @@ border:none;
 border-radius:20px;
 font-size:16px;
 cursor:pointer;
+transition:0.3s;
 }
 
 #yesBtn{
-background:#ff4d6d;
+background:#ff1744;
 color:white;
 }
 
@@ -45,6 +49,37 @@ color:white;
 background:#ff8fa3;
 color:white;
 position:absolute;
+}
+
+.lovePage{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.lovePage img{
+width:280px;
+border-radius:15px;
+margin-top:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.heart{
+position:absolute;
+color:red;
+font-size:20px;
+animation: float 5s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-800px);opacity:0;}
 }
 </style>
 </head>
@@ -63,16 +98,34 @@ Don't waste your time clicking No 😌
 </p>
 </div>
 
+<audio id="bgMusic" loop>
+<source src="song.mp3" type="audio/mp3">
+</audio>
+
 <script>
+
+let yesSize = 16;
 
 function yesClick(){
 document.body.innerHTML = `
-<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:linear-gradient(135deg,#ff758c,#ff7eb3);color:white;text-align:center;font-family:'Segoe UI';flex-direction:column;">
-<h1>Yaaahhh! ❤️</h1>
-<h2>I Love You Jeyasri 💍</h2>
-<p>You are my forever and always 💖</p>
+<div class="lovePage">
+<h1>Jeyasri ❤️</h1>
+
+<p style="font-size:20px;max-width:500px;line-height:1.6;">
+பலக் கோடி பெண்கள்தான் 👱‍♀️<br>
+பூமியிலே வாழலாம்<br>
+ஓரு பார்வையால் 👀😍<br>
+மனதைப் பறித்துச் சென்றவள் நீயடி ❤️❤️
+</p>
+
+<img src="photo1.jpg">
 </div>
 `;
+
+let music = document.getElementById("bgMusic");
+music.play();
+
+createHearts();
 }
 
 function moveButton(){
@@ -81,6 +134,22 @@ let x=Math.random()*200;
 let y=Math.random()*150;
 button.style.left=x+"px";
 button.style.top=y+"px";
+
+/* Yes button grow effect */
+yesSize += 4;
+document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+}
+
+function createHearts(){
+setInterval(function(){
+let heart=document.createElement("div");
+heart.innerHTML="❤️";
+heart.className="heart";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+15)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},5000);
+},300);
 }
 
 </script>
