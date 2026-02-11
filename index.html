@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>En Jeyasri ❤️</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+text-align:center;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(to right,#ff758c,#ff7eb3);
+overflow:hidden;
+color:white;
+}
+
+h1{margin-top:80px;font-size:35px;}
+h2{font-size:25px;}
+p{font-size:20px;}
+
+button{
+padding:12px 25px;
+margin:15px;
+font-size:18px;
+border:none;
+border-radius:25px;
+background-color:#ff1744;
+color:white;
+cursor:pointer;
+position:relative;
+}
+
+#noBtn{
+position:absolute;
+}
+
+/* Gallery */
+.gallery{
+display:none;
+margin-top:30px;
+}
+
+img{
+width:260px;
+height:320px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+/* Hearts animation */
+.heart{
+position:absolute;
+color:red;
+font-size:20px;
+animation: float 5s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-800px);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="song.mp3" type="audio/mp3">
+</audio>
+
+<div id="main">
+<h1>Jeyasri ❤️</h1>
+<h2>En Vazhkaiyin Kadhal Nee 💕</h2>
+<p>Ennudaiya Forever Valentine ah irupiya? 😘</p>
+
+<button onclick="yesClick()">Yes 💖</button>
+<button id="noBtn" onmouseover="moveButton()">No 😜</button>
+</div>
+
+<div class="gallery" id="gallery">
+<h1>Namma Azhagana Ninaivugal 💞</h1>
+<img id="slide" src="photo1.jpg">
+<p>Jeyasri…  
+Nee dhan en uyir, en santhosham, en ulagame ❤️  
+Naan unai endrum kadhalippen 💍💖
+</p>
+</div>
+
+<script>
+
+let photos=["photo1.jpg","photo2.jpg","photo3.jpg"];
+let index=0;
+
+function yesClick(){
+document.getElementById("main").style.display="none";
+document.getElementById("gallery").style.display="block";
+setInterval(changePhoto,2000);
+createHearts();
+}
+
+function changePhoto(){
+index++;
+if(index>=photos.length){index=0;}
+document.getElementById("slide").src=photos[index];
+}
+
+function moveButton(){
+let button=document.getElementById("noBtn");
+let x=Math.random()*(window.innerWidth-100);
+let y=Math.random()*(window.innerHeight-50);
+button.style.left=x+"px";
+button.style.top=y+"px";
+}
+
+function createHearts(){
+setInterval(function(){
+let heart=document.createElement("div");
+heart.innerHTML="❤️";
+heart.className="heart";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+15)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove();},5000);
+},300);
+}
+
+</script>
+
+</body>
+</html>
