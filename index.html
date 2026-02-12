@@ -2,17 +2,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For My Jeyasri ❤️</title>
+<title>Our Love Story ❤️</title>
 
 <style>
 body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 overflow:hidden;
 }
 
-/* COMMON */
+/* CENTER */
 .center{
 display:flex;
 justify-content:center;
@@ -27,7 +26,7 @@ text-align:center;
 background:white;
 padding:30px;
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 width:300px;
 position:relative;
 }
@@ -39,50 +38,70 @@ border:none;
 border-radius:20px;
 font-size:16px;
 cursor:pointer;
-transition:0.3s;
 }
 
-.yesBtn{
-background:#ff1744;
-color:white;
-}
+.yesBtn{background:#ff1744;color:white;}
+.noBtn{background:#ff8fa3;color:white;position:absolute;}
 
-.noBtn{
-background:#ff8fa3;
-color:white;
-position:absolute;
-}
-
-/* PAGE 2 */
-#page2, #page3{
+/* PAGE 2 NIGHT MODE */
+#page2{
 display:none;
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(135deg,#ff758c,#ff7eb3);
+top:0;left:0;
+width:100%;height:100%;
+background:linear-gradient(180deg,#1a0033,#330066);
 color:white;
+overflow-y:auto;
+padding-bottom:40px;
 }
 
-/* SLIDESHOW */
+/* SLIDE */
 .slideImg{
 width:280px;
 border-radius:15px;
 margin-top:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* HEARTS */
-.heart{
-position:absolute;
+/* TIMELINE */
+.timeline{
+margin-top:30px;
+line-height:1.8;
+}
+
+/* PAGE 3 */
+#page3{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
 color:white;
-animation: float 5s linear infinite;
 }
 
-@keyframes float{
-0%{transform:translateY(0);opacity:1;}
-100%{transform:translateY(-800px);opacity:0;}
+/* RING */
+.ring{
+font-size:60px;
+animation: drop 1s ease forwards;
+}
+
+@keyframes drop{
+0%{transform:translateY(-200px);}
+100%{transform:translateY(0);}
+}
+
+/* CONFETTI */
+.confetti{
+position:absolute;
+width:10px;
+height:10px;
+background:red;
+animation: fall 3s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-100px);}
+100%{transform:translateY(100vh);}
 }
 </style>
 </head>
@@ -90,11 +109,10 @@ animation: float 5s linear infinite;
 <body>
 
 <!-- PAGE 1 -->
-<div id="page1" class="center">
+<div id="page1" class="center" style="background:linear-gradient(135deg,#ff9a9e,#fad0c4);">
 <div class="card">
 <h2>Jeyasri ❤️</h2>
 <p>Will you be my forever Valentine? 💕</p>
-
 <button class="yesBtn" onclick="goPage2()">Yes 💖</button>
 <button id="no1" class="noBtn" onmouseover="moveNo1()">No 😜</button>
 </div>
@@ -110,44 +128,21 @@ animation: float 5s linear infinite;
 
 <button class="yesBtn" onclick="goPage3()">Yes 💍</button>
 <button id="no2" class="noBtn" onmouseover="moveNo2()">No 😜</button>
+
+<div class="timeline">
+<h3>📖 Our Love Timeline</h3>
+<p>👀 First Saw You : 22.11.2020</p>
+<p>💌 Love Proposal : 20.07.2022</p>
+<p>📸 First Selfie : 05.09.2022</p>
+<p>🏍️ First Bike Ride : Theiyalaye 😜</p>
+</div>
+
 </div>
 
 <!-- PAGE 3 -->
 <div id="page3" class="center">
-<h2>Type the Secret Code 💌</h2>
-
-<input id="secretInput" placeholder="Type here..." style="padding:10px;border-radius:10px;border:none;width:250px;">
-<br><br>
-<button class="yesBtn" onclick="checkSecret()">Submit 💖</button>
-
-<div id="letter" style="display:none;margin-top:20px;max-width:500px;line-height:1.6;">
-<h2>💌 My Love Letter 💌</h2>
-
-<p>
-என் செல்ல லட்டு ❤️🥰  
-
-உன்னை பார்த்த அந்த முதல் நொடியிலேயே  
-என் மனசு உன்னோட சேர்ந்துடிச்சு 💞  
-
-நீ சிரிச்சா என் உலகமே ஒளிருது ✨  
-நீ கோபப்பட்டா கூட cute ah dhaan irukka 😘  
-
-உன் கண்களில் நான் காண்ற காதல்  
-என் வாழ்க்கை முழுக்க போதும் 💍  
-
-பலக் கோடி பெண்கள் இருந்தாலும்  
-என் இதயத்தை வென்றவள் நீயே ❤️  
-
-நான் உன்னை என்றும் நேசிப்பேன்  
-என் மனைவியாக, என் தோழியாக,  
-என் வாழ்க்கை முழுவதும் என் கூட இருக்கணும் 💕  
-
-Happy Lovers Day My Laddu 💖😘  
-Forever Yours,  
-Lalchand 💍❤️
-</p>
-
-</div>
+<div class="ring">💍</div>
+<h1>She Said YES ❤️🎉</h1>
 </div>
 
 <audio id="bgMusic" loop>
@@ -160,15 +155,14 @@ Lalchand 💍❤️
 function goPage2(){
 document.getElementById("page1").style.display="none";
 document.getElementById("page2").style.display="flex";
-
 document.getElementById("bgMusic").play();
 startSlideshow();
-createHearts();
 }
 
 function goPage3(){
 document.getElementById("page2").style.display="none";
 document.getElementById("page3").style.display="flex";
+createConfetti();
 }
 
 /* SLIDESHOW */
@@ -183,18 +177,7 @@ document.getElementById("slide").src=photos[index];
 },2000);
 }
 
-/* SECRET */
-function checkSecret(){
-let val=document.getElementById("secretInput").value.trim();
-if(val.toLowerCase()=="i love you laddu"){
-document.getElementById("letter").style.display="block";
-}
-else{
-alert("Wrong secret 😜 Try again!");
-}
-}
-
-/* NO BUTTON MOVE */
+/* NO MOVE */
 function moveNo1(){
 let btn=document.getElementById("no1");
 btn.style.left=Math.random()*200+"px";
@@ -207,17 +190,16 @@ btn.style.left=Math.random()*200+"px";
 btn.style.top=Math.random()*150+"px";
 }
 
-/* HEARTS */
-function createHearts(){
-setInterval(()=>{
-let heart=document.createElement("div");
-heart.innerHTML="❤️";
-heart.className="heart";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*20+15)+"px";
-document.body.appendChild(heart);
-setTimeout(()=>{heart.remove();},5000);
-},300);
+/* CONFETTI */
+function createConfetti(){
+for(let i=0;i<100;i++){
+let conf=document.createElement("div");
+conf.className="confetti";
+conf.style.left=Math.random()*100+"vw";
+conf.style.backgroundColor=["red","yellow","blue","green"][Math.floor(Math.random()*4)];
+conf.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(conf);
+}
 }
 
 </script>
