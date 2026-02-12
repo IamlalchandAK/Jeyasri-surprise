@@ -26,9 +26,7 @@ width:320px;
 position:relative;
 }
 
-h2{
-color:#ff4d6d;
-}
+h2{color:#ff4d6d;}
 
 button{
 padding:10px 20px;
@@ -40,16 +38,8 @@ cursor:pointer;
 transition:0.3s;
 }
 
-#yesBtn{
-background:#ff1744;
-color:white;
-}
-
-#noBtn{
-background:#ff8fa3;
-color:white;
-position:absolute;
-}
+#yesBtn{background:#ff1744;color:white;}
+#noBtn{background:#ff8fa3;color:white;position:absolute;}
 
 .lovePage{
 display:flex;
@@ -61,6 +51,12 @@ background:linear-gradient(135deg,#ff758c,#ff7eb3);
 color:white;
 text-align:center;
 padding:20px;
+animation:fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
 }
 
 .lovePage img{
@@ -70,10 +66,19 @@ margin-top:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
+.ring{
+font-size:60px;
+animation:zoom 1s infinite alternate;
+}
+
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.2);}
+}
+
 .heart{
 position:absolute;
-color:red;
-font-size:20px;
+color:white;
 animation: float 5s linear infinite;
 }
 
@@ -104,11 +109,16 @@ Don't waste your time clicking No 😌
 
 <script>
 
-let yesSize = 16;
+let yesSize=16;
 
 function yesClick(){
-document.body.innerHTML = `
+
+let music=document.getElementById("bgMusic");
+music.play().catch(()=>{});
+
+document.body.innerHTML=`
 <div class="lovePage">
+<div class="ring">💍</div>
 <h1>Jeyasri ❤️</h1>
 
 <p style="font-size:20px;max-width:500px;line-height:1.6;">
@@ -119,11 +129,10 @@ document.body.innerHTML = `
 </p>
 
 <img src="photo1.jpg">
+
+<h2>Will You Marry Me? 💍❤️</h2>
 </div>
 `;
-
-let music = document.getElementById("bgMusic");
-music.play();
 
 createHearts();
 }
@@ -135,9 +144,8 @@ let y=Math.random()*150;
 button.style.left=x+"px";
 button.style.top=y+"px";
 
-/* Yes button grow effect */
-yesSize += 4;
-document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+yesSize+=4;
+document.getElementById("yesBtn").style.fontSize=yesSize+"px";
 }
 
 function createHearts(){
