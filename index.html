@@ -43,30 +43,24 @@ cursor:pointer;
 .yesBtn{background:#ff1744;color:white;}
 .noBtn{background:#ff8fa3;color:white;position:absolute;}
 
-/* PAGE 2 NIGHT MODE */
+/* NIGHT PAGE */
 #page2{
 display:none;
 position:fixed;
 top:0;left:0;
 width:100%;height:100%;
-background:linear-gradient(180deg,#1a0033,#330066);
+background:linear-gradient(180deg,#0f0026,#2d0066);
 color:white;
 overflow-y:auto;
 padding-bottom:40px;
 }
 
-/* SLIDE */
+/* SLIDESHOW */
 .slideImg{
 width:280px;
 border-radius:15px;
 margin-top:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* TIMELINE */
-.timeline{
-margin-top:30px;
-line-height:1.8;
 }
 
 /* PAGE 3 */
@@ -75,13 +69,21 @@ display:none;
 position:fixed;
 top:0;left:0;
 width:100%;height:100%;
-background:linear-gradient(135deg,#ff758c,#ff7eb3);
+background:radial-gradient(circle,#ff4d6d,#990033);
 color:white;
+animation: heartbeatBG 1s infinite;
+}
+
+/* HEARTBEAT BG */
+@keyframes heartbeatBG{
+0%{transform:scale(1);}
+50%{transform:scale(1.02);}
+100%{transform:scale(1);}
 }
 
 /* RING */
 .ring{
-font-size:60px;
+font-size:70px;
 animation: drop 1s ease forwards;
 }
 
@@ -95,13 +97,20 @@ animation: drop 1s ease forwards;
 position:absolute;
 width:10px;
 height:10px;
-background:red;
 animation: fall 3s linear infinite;
 }
 
 @keyframes fall{
 0%{transform:translateY(-100px);}
 100%{transform:translateY(100vh);}
+}
+
+/* LETTER */
+#letter{
+display:none;
+max-width:500px;
+margin-top:20px;
+white-space:pre-line;
 }
 </style>
 </head>
@@ -125,24 +134,29 @@ animation: fall 3s linear infinite;
 <img id="slide" class="slideImg" src="photo1.jpg">
 
 <h2>Will You Marry Me? 💍❤️</h2>
-
 <button class="yesBtn" onclick="goPage3()">Yes 💍</button>
 <button id="no2" class="noBtn" onmouseover="moveNo2()">No 😜</button>
 
-<div class="timeline">
-<h3>📖 Our Love Timeline</h3>
-<p>👀 First Saw You : 22.11.2020</p>
-<p>💌 Love Proposal : 20.07.2022</p>
-<p>📸 First Selfie : 05.09.2022</p>
-<p>🏍️ First Bike Ride : Theiyalaye 😜</p>
-</div>
-
+<p style="margin-top:30px;">
+📖 First Saw You : 22.11.2020 <br>
+💌 Love Proposal : 20.07.2022 <br>
+📸 First Selfie : 05.09.2022 <br>
+🏍️ First Bike Ride : Coming Soon 😜
+</p>
 </div>
 
 <!-- PAGE 3 -->
 <div id="page3" class="center">
 <div class="ring">💍</div>
 <h1>She Said YES ❤️🎉</h1>
+
+<h3>Unlock My Heart 💌</h3>
+<input id="secretInput" placeholder="Type the secret code..."
+style="padding:10px;border-radius:10px;border:none;width:250px;">
+<br>
+<button class="yesBtn" onclick="checkSecret()">Open Letter 💖</button>
+
+<div id="letter"></div>
 </div>
 
 <audio id="bgMusic" loop>
@@ -175,6 +189,47 @@ index++;
 if(index>=photos.length) index=0;
 document.getElementById("slide").src=photos[index];
 },2000);
+}
+
+/* SECRET */
+let fullText=`என் செல்ல லட்டு ❤️🥰
+
+உன்னை பார்த்த அந்த முதல் நொடியிலேயே
+என் மனசு உன்னோட சேர்ந்துடிச்சு 💞
+
+நீ சிரிச்சா என் உலகமே ஒளிருது ✨
+நீ கோபப்பட்டாலும் cute ah dhaan irukka 😘
+
+பலக் கோடி பெண்கள் இருந்தாலும்
+என் இதயத்தை வென்றவள் நீயே ❤️
+
+நான் உன்னை என்றும் நேசிப்பேன்
+என் வாழ்க்கை முழுவதும் என் கூட இருக்கணும் 💍💕
+
+Happy Lovers Day My Laddu 💖😘
+Forever Yours,
+Lalchand ❤️`;
+
+function checkSecret(){
+let val=document.getElementById("secretInput").value.trim().toLowerCase();
+if(val=="i love you laddu"){
+typeWriter();
+}
+else{
+alert("Wrong secret 😜 Try again!");
+}
+}
+
+/* TYPEWRITER */
+let i=0;
+function typeWriter(){
+let letter=document.getElementById("letter");
+letter.style.display="block";
+if(i<fullText.length){
+letter.innerHTML+=fullText.charAt(i);
+i++;
+setTimeout(typeWriter,40);
+}
 }
 
 /* NO MOVE */
